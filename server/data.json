@@ -1,0 +1,391 @@
+{
+  "cities": {
+    "bilbao": {
+      "name": "Bilbao",
+      "places": [
+        {
+          "id": "1",
+          "name": "Guggenheim-museo",
+          "category": "museums",
+          "description": "Frank Gehryn suunnittelema moderni taidemuseo",
+          "website": "https://www.guggenheim-bilbao.eus/",
+          "googleMaps": "https://maps.google.com/?q=Guggenheim+Bilbao",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "2",
+          "name": "Casco Viejo",
+          "category": "walking",
+          "description": "Bilbaon vanha kaupunki - kapeat kujat ja pintxos-baarit",
+          "website": "",
+          "googleMaps": "https://maps.google.com/?q=Casco+Viejo+Bilbao",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "4",
+          "name": "Mercado de la Ribera",
+          "category": "shopping",
+          "description": "Euroopan suurin katettu elintarviketori Art Deco -tyylisessä rakennuksessa. Tuoretta kalaa, lihaa, vihanneksia ja paikallisia herkkuja.",
+          "website": "https://www.mercadodelaribera.biz/",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Mercado%20de%20la%20Ribera%2C%20Bilbao",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "5",
+          "name": "Semillas Antuñano",
+          "category": "shopping",
+          "description": "Siemen- ja puutarhakauppa Bilbaon keskustassa. Laaja valikoima siemeniä, kasveja ja puutarhatarvikkeita.",
+          "website": "https://semillasantunano.com/",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Semillas%20Antu%C3%B1ano%2C%20Bilbao",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "6",
+          "name": "Viveros Gondra",
+          "category": "shopping",
+          "description": "Suuri puutarhakeskus Mungiassa (20km Bilbaosta). Yli 1000m² myymälä + 5000m² kasvihuone. Laaja valikoima siemeniä, kasveja ja puutarhatarvikkeita.",
+          "website": "https://viverosgondra.com/",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Viveros%20Gondra%2C%20Mungia",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "7",
+          "name": "Mundo Verde Garden Center",
+          "category": "shopping",
+          "description": "Laaja puutarhakeskus Sopelassa. Yli 10 000m² tilat kasveineen, siemenineen ja puutarhatarvikkeineen. Hyvät kulkuyhteydet Bilbaosta.",
+          "website": "https://www.mvgarden.com/",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Mundo%20Verde%20Garden%20Center%2C%20Sopela",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        }
+      ]
+    },
+    "sanSebastian": {
+      "name": "San Sebastián",
+      "places": [
+        {
+          "id": "3",
+          "name": "La Perla kylpylä",
+          "category": "other",
+          "description": "Historiallinen talassoterapiakeskus La Concha -rannan päällä. Merivedellä täytetyt altaat, saunat, höyrykylvyt ja kattoterassi näköaloin merelle. Perustettu 1912.",
+          "website": "https://la-perla.net/en/",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=La%20Perla%2C%20San%20Sebasti%C3%A1n",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "8",
+          "name": "Parte Vieja",
+          "category": "walking",
+          "description": "San Sebastiánin vanhakaupunki - pintxos-baarien keskittymä, kapeat kujat ja elävä tunnelma",
+          "website": "",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Parte%20Vieja%2C%20San%20Sebasti%C3%A1n",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "9",
+          "name": "La Concha -ranta",
+          "category": "walking",
+          "description": "Kuuluisa simpukkamuotoinen kaupunkiranta, yksi Euroopan kauneimmista kaupunkirannoista",
+          "website": "",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=La%20Concha%20Beach%2C%20San%20Sebasti%C3%A1n",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "10",
+          "name": "La Viña",
+          "category": "restaurants",
+          "description": "Kuuluisa baskilaisesta 'burnt' juustokakusta (tarta de queso). Myös erinomaisia perinteisiä pintxoja. Juustokakku luotu 1990, maailmankuulu.",
+          "website": "https://lavinarestaurante.com/en/",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=La%20Vi%C3%B1a%2C%20San%20Sebasti%C3%A1n",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "11",
+          "name": "Bar Nestor",
+          "category": "restaurants",
+          "description": "Legendaarinen tortilla - vain 2 kpl päivässä (klo 13 ja 20). Myös tomaattisalaatti, padrón-paprikat ja txuleta-pihvi. Saavu tunti ennen varaamaan paikka!",
+          "website": "https://bar-nestor.negocio.site/",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Bar%20Nestor%2C%20San%20Sebasti%C3%A1n",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "12",
+          "name": "Bar Bergara",
+          "category": "restaurants",
+          "description": "Moderni pintxos-baari Gros-alueella. Kuuluisa hanhenmaksarisotto-pintxostaan (foie risotto) ja kolmesta erilaisesta tortillasta (peruna, sieni, sardelli). Palkittuja pintxoja.",
+          "website": "https://pinchosbergara.es/",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Bar%20Bergara%2C%20San%20Sebasti%C3%A1n",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "13",
+          "name": "Bar Sport",
+          "category": "restaurants",
+          "description": "Perinteinen pintxos-baari Fermín Calbetón -kadulla. Erikoisuuksia: täytetty kalmarinkka (chipirón relleno), hanhenmaksa a la plancha, meriluutuva (crema de erizo). Vilkas tunnelma.",
+          "website": "",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Bar%20Sport%2C%20San%20Sebasti%C3%A1n",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "14",
+          "name": "Ganbara",
+          "category": "restaurants",
+          "description": "Michelin-palkittu pintxos-baari. Tunnettu erinomaisista sienipintxoista (kausi syksyllä) ja taskuravun tartaletista. Korkealaatuiset raaka-aineet. Anthony Bourdain -suosikki.",
+          "website": "",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Ganbara%2C%20San%20Sebasti%C3%A1n",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "15",
+          "name": "Txepetxa",
+          "category": "restaurants",
+          "description": "Sardellibaari - 14 eri sardellivariaatiota! Tuoreet, mehevät sardellit. Suositus: sardelli + papaya-yhdistelmä. Perustettu 1948.",
+          "website": "",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Txepetxa%2C%20San%20Sebasti%C3%A1n",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "16",
+          "name": "Bar Antonio",
+          "category": "restaurants",
+          "description": "Calle Vergaralla/Calle Bergaralla sijaitseva baari. Erinomainen tortilla ja monipuoliset pintxot (naudanwonton, katkarapu ravioli, antxoa).",
+          "website": "https://antoniobar.com/",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Bar%20Antonio%2C%20San%20Sebasti%C3%A1n",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "17",
+          "name": "Gandarias",
+          "category": "restaurants",
+          "description": "Monipuolinen pintxos-baari hyvällä valikoimalla 31 de Agosto -kadulla. Tunnettu hanhenmaksapintxoistaan. Laadukas ja luotettava valinta.",
+          "website": "",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Gandarias%2C%20San%20Sebasti%C3%A1n",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "18",
+          "name": "Bar Atari (Atari Gastroteka)",
+          "category": "restaurants",
+          "description": "Modernimpi pintxos-baari Calle Mayorilla. Tunnettu mustekala/polppopintxoistaan (pulpo). Monipuolinen valikoima. Hyvät cocktailit.",
+          "website": "",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Atari%20Gastroteka%2C%20San%20Sebasti%C3%A1n",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "19",
+          "name": "La Cuchara de San Telmo",
+          "category": "restaurants",
+          "description": "'Kaikki on hyvää täällä!' Moderni pintxos-keittiö lähellä San Telmo -museota. Korvaterriini (oreja) klassikko, porsaanpaisti (cochinillo), vasikanposki. Kaikki tilauksesta.",
+          "website": "",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=La%20Cuchara%20de%20San%20Telmo%2C%20San%20Sebasti%C3%A1n",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "20",
+          "name": "Borda Berri",
+          "category": "restaurants",
+          "description": "Pieni, tunnelmallinen baari Fermín Calbetón -kadulla. Erikoisuuksia: korva chimichurri-kastikkeella ja cremoso-risotto. Suosittu paikallisten keskuudessa. Kaikki tilauksesta.",
+          "website": "",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Borda%20Berri%2C%20San%20Sebasti%C3%A1n",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "21",
+          "name": "Paco Bueno",
+          "category": "restaurants",
+          "description": "Klassikko katkarapupintxosta. Gamba gabardina (paneroitu katkarapu) ja olut - yksinkertainen mutta täydellinen yhdistelmä.",
+          "website": "",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Paco%20Bueno%2C%20San%20Sebasti%C3%A1n",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "22",
+          "name": "Bodega Donostiarra",
+          "category": "restaurants",
+          "description": "Gros-alueella sijaitseva perinteinen bodega. Monipuolinen valikoima pintxoja. Paikallisten suosikki.",
+          "website": "",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Bodega%20Donostiarra%2C%20San%20Sebasti%C3%A1n",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "23",
+          "name": "Casa Urola",
+          "category": "restaurants",
+          "description": "Kampasimpukka (vieira) must-try, txuleta-pintxo perunavaahdon ja paprikoiden kera, idiazabal-juuston tartaletti. Loistavia kausikasviksia. Korkealaatuinen perheyritys.",
+          "website": "",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Casa%20Urola%2C%20San%20Sebasti%C3%A1n",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "24",
+          "name": "Bar Txuleta",
+          "category": "restaurants",
+          "description": "Erikoistunut txuletaan (baskalainen pihvi). Liha-painotteinen valikko.",
+          "website": "",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Bar%20Txuleta%2C%20San%20Sebasti%C3%A1n",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "25",
+          "name": "Tamboril",
+          "category": "restaurants",
+          "description": "Klassinen venäläinen salaatti (ensaladilla rusa). Perinteinen pintxos-baari.",
+          "website": "",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Tamboril%2C%20San%20Sebasti%C3%A1n",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "26",
+          "name": "La Espiga",
+          "category": "restaurants",
+          "description": "Erikoisuutena paneroitu täytetty paprika (pimiento rebozado relleno).",
+          "website": "",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=La%20Espiga%2C%20San%20Sebasti%C3%A1n",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "27",
+          "name": "Casa Vergara (Bar Vergara)",
+          "category": "restaurants",
+          "description": "Meriluutuva-pintxo (erizo). Mereneläviin erikoistunut.",
+          "website": "",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Casa%20Vergara%2C%20San%20Sebasti%C3%A1n",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "28",
+          "name": "Bar Zabaleta",
+          "category": "restaurants",
+          "description": "Gros-alueella. Erinomainen tortilla. Klassinen pintxos-baari paikallisten suosikki.",
+          "website": "",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Bar%20Zabaleta%2C%20San%20Sebasti%C3%A1n",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "29",
+          "name": "Sidreria Beharri",
+          "category": "restaurants",
+          "description": "Perinteinen baskilainen omenatalobaari (sidreria) vanhassakaupungissa. 'Txotx!'-perinne - kaada oma siideri suoraan tynnyristä. Klassiset ateriat: turskaomeletti, txuleta-pihvi, idiazabal-juusto. Aitoa baskikulttuuria keskellä kaupunkia.",
+          "website": "https://sidreriabeharri.com/",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Sidreria%20Beharri%2C%20San%20Sebasti%C3%A1n",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "30",
+          "name": "Peine del Viento (Comb of the Wind)",
+          "category": "walking",
+          "description": "Eduardo Chillidan kuuluisa veistos Ondarreta-rannan päässä, Monte Igueldon juurella (1977). Kolme 10-tonnista terästaideteosta kiinnitettynä kallioihin. Maaginen paikka meren äärellä, erityisen upea myrskyillä kun aallot lyövät kallioita vasten. Vesisuihkut pursuavat kallioon poratuista rei'istä.",
+          "website": "https://tourism.euskadi.eus/en/cultural-heritage/peine-del-viento-the-comb-of-the-wind/aa30-12375/en/",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Peine%20del%20Viento%2C%20San%20Sebasti%C3%A1n",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "31",
+          "name": "Paseo de Francia / Av. Pasajes de San Pedro",
+          "category": "walking",
+          "description": "Kaunis rantakävely La Concha -lahden itäpuolella. Merinäköala ja rauhoittava kävelypaikka kaupungin reunalla.",
+          "website": "",
+          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Paseo%20de%20Francia%2C%20San%20Sebasti%C3%A1n",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        }
+      ]
+    }
+  },
+  "quickLinks": [
+    {
+      "category": "Julkinen liikenne Bilbaossa",
+      "links": [
+        {
+          "name": "Bilbobus",
+          "url": "https://www.bilbobus.eus/"
+        },
+        {
+          "name": "Bizkaibus",
+          "url": "https://www.bizkaia.eus/eu/web/bizkaibus"
+        },
+        {
+          "name": "Metro Bilbao",
+          "url": "https://www.metrobilbao.eus/"
+        },
+        {
+          "name": "Euskotren",
+          "url": "https://www.euskotren.eus/"
+        }
+      ]
+    },
+    {
+      "category": "Liikenne San Sebastiániin",
+      "links": [
+        {
+          "name": "ALSA",
+          "url": "https://www.alsa.es/"
+        },
+        {
+          "name": "Renfe",
+          "url": "https://www.renfe.com/"
+        }
+      ]
+    }
+  ]
+}
