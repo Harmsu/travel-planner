@@ -13,6 +13,16 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const CLIENT_DIST = join(__dirname, '..', 'client', 'dist');
 
+// GitHub-tallennus tuotannossa (pysyvä data)
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+const GITHUB_REPO = process.env.GITHUB_REPO || 'Harmsu/travel-planner';
+const GITHUB_DATA_PATH = 'server/data.json';
+const useGitHub = !!GITHUB_TOKEN;
+
+// Muistivälimuisti
+let dataCache = null;
+let githubSha = null;
+
 // Salasana - vaihda tämä ennen tuotantoon vientiä!
 const PASSWORD = process.env.APP_PASSWORD || 'harmsu2026';
 
@@ -64,88 +74,141 @@ app.post('/api/logout', (req, res) => {
 });
 
 // Apufunktiot datan lukemiseen ja kirjoittamiseen
-function readData() {
+async function readData() {
+  if (useGitHub) {
+    if (dataCache) return dataCache;
+    const res = await fetch(
+      `https://api.github.com/repos/${GITHUB_REPO}/contents/${GITHUB_DATA_PATH}`,
+      { headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: 'application/vnd.github.v3+json' } }
+    );
+    const json = await res.json();
+    githubSha = json.sha;
+    const content = Buffer.from(json.content, 'base64').toString('utf-8');
+    dataCache = JSON.parse(content);
+    return dataCache;
+  }
   const raw = readFileSync(DATA_FILE, 'utf-8');
   return JSON.parse(raw);
 }
 
-function writeData(data) {
+async function writeData(data) {
+  dataCache = data;
+  if (useGitHub) {
+    if (!githubSha) await readData(); // varmista sha
+    const content = Buffer.from(JSON.stringify(data, null, 2)).toString('base64');
+    const res = await fetch(
+      `https://api.github.com/repos/${GITHUB_REPO}/contents/${GITHUB_DATA_PATH}`,
+      {
+        method: 'PUT',
+        headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: 'Update travel data', content, sha: githubSha })
+      }
+    );
+    const json = await res.json();
+    githubSha = json.content.sha;
+    return;
+  }
   writeFileSync(DATA_FILE, JSON.stringify(data, null, 2), 'utf-8');
 }
 
 // GET /api/data - palauttaa kaiken datan
-app.get('/api/data', (req, res) => {
-  const data = readData();
-  res.json(data);
+app.get('/api/data', async (req, res) => {
+  try {
+    const data = await readData();
+    res.json(data);
+  } catch (err) {
+    console.error('readData error:', err);
+    res.status(500).json({ error: 'Datan luku epäonnistui' });
+  }
 });
 
 // POST /api/data - tallentaa koko datan
-app.post('/api/data', (req, res) => {
-  writeData(req.body);
-  res.json({ success: true });
+app.post('/api/data', async (req, res) => {
+  try {
+    await writeData(req.body);
+    res.json({ success: true });
+  } catch (err) {
+    console.error('writeData error:', err);
+    res.status(500).json({ error: 'Datan tallennus epäonnistui' });
+  }
 });
 
 // POST /api/places - lisää uuden paikan
-app.post('/api/places', (req, res) => {
-  const { cityKey, place } = req.body;
-  const data = readData();
+app.post('/api/places', async (req, res) => {
+  try {
+    const { cityKey, place } = req.body;
+    const data = await readData();
 
-  if (!data.cities[cityKey]) {
-    return res.status(400).json({ error: `Kaupunkia "${cityKey}" ei löydy` });
+    if (!data.cities[cityKey]) {
+      return res.status(400).json({ error: `Kaupunkia "${cityKey}" ei löydy` });
+    }
+
+    data.cities[cityKey].places.push(place);
+    await writeData(data);
+    res.json({ success: true, place });
+  } catch (err) {
+    console.error('addPlace error:', err);
+    res.status(500).json({ error: 'Paikan lisäys epäonnistui' });
   }
-
-  data.cities[cityKey].places.push(place);
-  writeData(data);
-  res.json({ success: true, place });
 });
 
 // PUT /api/places/:id - päivittää paikan
-app.put('/api/places/:id', (req, res) => {
-  const { id } = req.params;
-  const updatedPlace = req.body;
-  const data = readData();
+app.put('/api/places/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updatedPlace = req.body;
+    const data = await readData();
 
-  let found = false;
-  for (const cityKey of Object.keys(data.cities)) {
-    const places = data.cities[cityKey].places;
-    const index = places.findIndex(p => p.id === id);
-    if (index !== -1) {
-      data.cities[cityKey].places[index] = { ...places[index], ...updatedPlace };
-      found = true;
-      break;
+    let found = false;
+    for (const cityKey of Object.keys(data.cities)) {
+      const places = data.cities[cityKey].places;
+      const index = places.findIndex(p => p.id === id);
+      if (index !== -1) {
+        data.cities[cityKey].places[index] = { ...places[index], ...updatedPlace };
+        found = true;
+        break;
+      }
     }
-  }
 
-  if (!found) {
-    return res.status(404).json({ error: `Paikkaa id:llä "${id}" ei löydy` });
-  }
+    if (!found) {
+      return res.status(404).json({ error: `Paikkaa id:llä "${id}" ei löydy` });
+    }
 
-  writeData(data);
-  res.json({ success: true });
+    await writeData(data);
+    res.json({ success: true });
+  } catch (err) {
+    console.error('updatePlace error:', err);
+    res.status(500).json({ error: 'Paikan päivitys epäonnistui' });
+  }
 });
 
 // DELETE /api/places/:id - poistaa paikan
-app.delete('/api/places/:id', (req, res) => {
-  const { id } = req.params;
-  const data = readData();
+app.delete('/api/places/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const data = await readData();
 
-  let found = false;
-  for (const cityKey of Object.keys(data.cities)) {
-    const places = data.cities[cityKey].places;
-    const index = places.findIndex(p => p.id === id);
-    if (index !== -1) {
-      data.cities[cityKey].places.splice(index, 1);
-      found = true;
-      break;
+    let found = false;
+    for (const cityKey of Object.keys(data.cities)) {
+      const places = data.cities[cityKey].places;
+      const index = places.findIndex(p => p.id === id);
+      if (index !== -1) {
+        data.cities[cityKey].places.splice(index, 1);
+        found = true;
+        break;
+      }
     }
-  }
 
-  if (!found) {
-    return res.status(404).json({ error: `Paikkaa id:llä "${id}" ei löydy` });
-  }
+    if (!found) {
+      return res.status(404).json({ error: `Paikkaa id:llä "${id}" ei löydy` });
+    }
 
-  writeData(data);
-  res.json({ success: true });
+    await writeData(data);
+    res.json({ success: true });
+  } catch (err) {
+    console.error('deletePlace error:', err);
+    res.status(500).json({ error: 'Paikan poisto epäonnistui' });
+  }
 });
 
 // Tarjoile frontendin build-tiedostot tuotannossa
