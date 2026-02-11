@@ -24,10 +24,18 @@ function CityView({ city, cityName, onUpdatePlace, onDeletePlace, onAddPlace }) 
   const [showForm, setShowForm] = useState(false);
   const [editingPlace, setEditingPlace] = useState(null);
   const [formCategory, setFormCategory] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const toggleCategory = (key) => {
     setOpenCategories(prev => ({ ...prev, [key]: !prev[key] }));
   };
+
+  const filteredPlaces = searchQuery
+    ? city.places.filter(p =>
+        p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.description.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : city.places;
 
   const totalPlaces = city.places.length;
   const visitedPlaces = city.places.filter(p => p.visited).length;
@@ -70,8 +78,21 @@ function CityView({ city, cityName, onUpdatePlace, onDeletePlace, onAddPlace }) 
       <h1>{city.name}</h1>
       <p className="city-stats">Paikkoja yhteensä: {totalPlaces} / Käytyjä: {visitedPlaces}</p>
 
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="Hae paikkoja..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="search-input"
+        />
+        {searchQuery && (
+          <button className="search-clear" onClick={() => setSearchQuery('')}>✕</button>
+        )}
+      </div>
+
       {categories.map(cat => {
-        const placesInCategory = city.places.filter(p => p.category === cat.key);
+        const placesInCategory = filteredPlaces.filter(p => p.category === cat.key);
         return (
           <div key={cat.key} className="category-section">
             <button

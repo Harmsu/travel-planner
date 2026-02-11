@@ -205,6 +205,48 @@ body {
   font-size: 0.95rem;
 }
 
+/* ==================== SEARCH BAR ==================== */
+
+.search-bar {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.6rem 2.5rem 0.6rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  min-height: 44px;
+  background: var(--bg-white);
+  transition: border-color 0.2s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--link-blue);
+}
+
+.search-clear {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #999;
+  cursor: pointer;
+  padding: 0.25rem;
+  line-height: 1;
+}
+
+.search-clear:hover {
+  color: var(--text-dark);
+}
+
 /* ==================== CATEGORY SECTIONS ==================== */
 
 .category-section {

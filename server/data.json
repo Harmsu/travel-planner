@@ -41,7 +41,7 @@
           "name": "Semillas Antuñano",
           "category": "shopping",
           "description": "Siemen- ja puutarhakauppa Bilbaon keskustassa. Laaja valikoima siemeniä, kasveja ja puutarhatarvikkeita.",
-          "website": "https://semillasantunano.com/",
+          "website": "https://semillas-antunano.com/",
           "googleMaps": "https://www.google.com/maps/search/?api=1&query=Semillas%20Antu%C3%B1ano%2C%20Bilbao",
           "otherLinks": [],
           "visited": false,
@@ -371,6 +371,10 @@
         {
           "name": "Euskotren",
           "url": "https://www.euskotren.eus/"
+        },
+        {
+          "name": "Tranbia",
+          "url": "https://www.euskotren.eus/tranbia"
         }
       ]
     },
@@ -384,6 +388,19 @@
         {
           "name": "Renfe",
           "url": "https://www.renfe.com/"
+        }
+      ]
+    },
+    {
+      "category": "Muut palvelut",
+      "links": [
+        {
+          "name": "La Perla kylpylä",
+          "url": "https://la-perla.net/en/"
+        },
+        {
+          "name": "Antuano Semillas - siemen kauppa",
+          "url": "https://semillas-antunano.com/"
         }
       ]
     }
