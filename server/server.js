@@ -105,6 +105,16 @@ async function writeData(data) {
       }
     );
     const json = await res.json();
+    if (!res.ok) {
+      console.error('GitHub API write error:', res.status, json);
+      // SHA conflict - hae uusi sha ja yritä uudelleen
+      if (res.status === 409) {
+        await readData(); // päivitä sha
+        dataCache = data; // palauta cache
+        return writeData(data); // yritä uudelleen
+      }
+      throw new Error(`GitHub API error: ${res.status} ${json.message || ''}`);
+    }
     githubSha = json.content.sha;
     return;
   }
@@ -220,6 +230,15 @@ if (existsSync(CLIENT_DIST)) {
   });
 }
 
-app.listen(PORT, '0.0.0.0', () => {
+app.listen(PORT, '0.0.0.0', async () => {
   console.log(`Travel Planner käynnissä: http://localhost:${PORT}`);
+  console.log(`Tallennustapa: ${useGitHub ? 'GitHub API (' + GITHUB_REPO + ')' : 'lokaali tiedosto'}`);
+  if (useGitHub) {
+    try {
+      await readData();
+      console.log('GitHub-yhteys OK, data ladattu välimuistiin');
+    } catch (err) {
+      console.error('GitHub-yhteys EPÄONNISTUI:', err.message);
+    }
+  }
 });
