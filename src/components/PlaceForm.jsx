@@ -68,7 +68,7 @@ function PlaceForm({ place, cityName, onSave, onCancel }) {
 
     onSave({
       ...(place || {}),
-      id: place?.id || Date.now().toString(),
+      ...(place?.id ? { id: place.id } : {}),
       name: name.trim(),
       category,
       description,

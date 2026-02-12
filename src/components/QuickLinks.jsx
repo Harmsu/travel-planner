@@ -1,62 +1,50 @@
 import { useState } from 'react';
 
-function QuickLinks({ links, onUpdate }) {
+function QuickLinks({ groupedLinks, onAddLink, onDeleteLink, onDeleteCategory }) {
   const [addingToCategory, setAddingToCategory] = useState(null);
   const [newLinkName, setNewLinkName] = useState('');
   const [newLinkUrl, setNewLinkUrl] = useState('');
   const [addingCategory, setAddingCategory] = useState(false);
   const [newCategoryName, setNewCategoryName] = useState('');
 
-  const handleAddLink = (categoryIndex) => {
+  const handleAddLink = (categoryName) => {
     if (!newLinkName.trim() || !newLinkUrl.trim()) return;
-    const updated = [...links];
-    updated[categoryIndex] = {
-      ...updated[categoryIndex],
-      links: [...updated[categoryIndex].links, { name: newLinkName.trim(), url: newLinkUrl.trim() }],
-    };
-    onUpdate(updated);
+    onAddLink(categoryName, newLinkName.trim(), newLinkUrl.trim());
     setNewLinkName('');
     setNewLinkUrl('');
     setAddingToCategory(null);
   };
 
-  const handleDeleteLink = (categoryIndex, linkIndex) => {
-    const linkName = links[categoryIndex].links[linkIndex].name;
+  const handleDeleteLink = (linkId, linkName) => {
     if (!window.confirm(`Haluatko varmasti poistaa linkin "${linkName}"?`)) return;
-    const updated = [...links];
-    updated[categoryIndex] = {
-      ...updated[categoryIndex],
-      links: updated[categoryIndex].links.filter((_, i) => i !== linkIndex),
-    };
-    onUpdate(updated);
+    onDeleteLink(linkId);
   };
 
   const handleAddCategory = () => {
-    if (!newCategoryName.trim()) return;
-    const updated = [...links, { category: newCategoryName.trim(), links: [] }];
-    onUpdate(updated);
+    if (!newCategoryName.trim() || !newLinkName.trim() || !newLinkUrl.trim()) return;
+    onAddLink(newCategoryName.trim(), newLinkName.trim(), newLinkUrl.trim());
     setNewCategoryName('');
+    setNewLinkName('');
+    setNewLinkUrl('');
     setAddingCategory(false);
   };
 
-  const handleDeleteCategory = (categoryIndex) => {
-    const catName = links[categoryIndex].category;
-    if (!window.confirm(`Haluatko varmasti poistaa kategorian "${catName}" ja kaikki sen linkit?`)) return;
-    const updated = links.filter((_, i) => i !== categoryIndex);
-    onUpdate(updated);
+  const handleDeleteCategory = (categoryName) => {
+    if (!window.confirm(`Haluatko varmasti poistaa kategorian "${categoryName}" ja kaikki sen linkit?`)) return;
+    onDeleteCategory(categoryName);
   };
 
   return (
     <div className="quick-links">
       <h1>Pikalinkit</h1>
 
-      {links.map((category, categoryIndex) => (
-        <div key={categoryIndex} className="quick-links-category">
+      {groupedLinks.map((group) => (
+        <div key={group.category} className="quick-links-category">
           <div className="quick-links-category-header">
-            <h2>{category.category}</h2>
+            <h2>{group.category}</h2>
             <button
               className="btn-delete-small"
-              onClick={() => handleDeleteCategory(categoryIndex)}
+              onClick={() => handleDeleteCategory(group.category)}
               title="Poista kategoria"
             >
               🗑️
@@ -64,14 +52,14 @@ function QuickLinks({ links, onUpdate }) {
           </div>
 
           <ul className="quick-links-list">
-            {category.links.map((link, linkIndex) => (
-              <li key={linkIndex}>
+            {group.links.map((link) => (
+              <li key={link.id}>
                 <a href={link.url} target="_blank" rel="noopener noreferrer">
                   {link.name}
                 </a>
                 <button
                   className="btn-delete-small"
-                  onClick={() => handleDeleteLink(categoryIndex, linkIndex)}
+                  onClick={() => handleDeleteLink(link.id, link.name)}
                   title="Poista linkki"
                 >
                   ❌
@@ -80,7 +68,7 @@ function QuickLinks({ links, onUpdate }) {
             ))}
           </ul>
 
-          {addingToCategory === categoryIndex ? (
+          {addingToCategory === group.category ? (
             <div className="quick-link-form">
               <input
                 type="text"
@@ -96,12 +84,12 @@ function QuickLinks({ links, onUpdate }) {
                 placeholder="https://..."
               />
               <div className="quick-link-form-actions">
-                <button className="btn-primary" onClick={() => handleAddLink(categoryIndex)}>Lisää</button>
+                <button className="btn-primary" onClick={() => handleAddLink(group.category)}>Lisää</button>
                 <button className="btn-secondary" onClick={() => { setAddingToCategory(null); setNewLinkName(''); setNewLinkUrl(''); }}>Peruuta</button>
               </div>
             </div>
           ) : (
-            <button className="btn-add-link" onClick={() => setAddingToCategory(categoryIndex)}>
+            <button className="btn-add-link" onClick={() => setAddingToCategory(group.category)}>
               + Lisää linkki
             </button>
           )}
@@ -117,9 +105,21 @@ function QuickLinks({ links, onUpdate }) {
             placeholder="Kategorian nimi"
             autoFocus
           />
+          <input
+            type="text"
+            value={newLinkName}
+            onChange={(e) => setNewLinkName(e.target.value)}
+            placeholder="Ensimmäisen linkin nimi"
+          />
+          <input
+            type="url"
+            value={newLinkUrl}
+            onChange={(e) => setNewLinkUrl(e.target.value)}
+            placeholder="https://..."
+          />
           <div className="quick-link-form-actions">
             <button className="btn-primary" onClick={handleAddCategory}>Lisää kategoria</button>
-            <button className="btn-secondary" onClick={() => { setAddingCategory(false); setNewCategoryName(''); }}>Peruuta</button>
+            <button className="btn-secondary" onClick={() => { setAddingCategory(false); setNewCategoryName(''); setNewLinkName(''); setNewLinkUrl(''); }}>Peruuta</button>
           </div>
         </div>
       ) : (

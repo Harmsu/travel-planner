@@ -1,47 +1,31 @@
 import { useState, useEffect } from 'react';
-import { fetchData, saveData, addPlace, updatePlace, deletePlace, isLoggedIn, logout } from './api';
+import { supabase } from './lib/supabase';
+import { useSupabaseData } from './hooks/useSupabaseData';
 import CityView from './components/CityView';
 import QuickLinks from './components/QuickLinks';
 import LoginPage from './components/LoginPage';
 import './App.css';
 
-function App() {
-  const [loggedIn, setLoggedIn] = useState(isLoggedIn());
-  const [data, setData] = useState(null);
+function MainContent({ onLogout }) {
+  const {
+    loading,
+    error,
+    fetchAll,
+    getPlacesByCity,
+    addPlace,
+    updatePlace,
+    deletePlace,
+    getGroupedQuickLinks,
+    addQuickLink,
+    deleteQuickLink,
+    deleteQuickLinkCategory,
+  } = useSupabaseData();
+
   const [activeTab, setActiveTab] = useState('bilbao');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
 
-  useEffect(() => {
-    if (loggedIn) loadData();
-  }, [loggedIn]);
-
-  const loadData = async () => {
-    try {
-      setLoading(true);
-      const result = await fetchData();
-      setData(result);
-      setError(null);
-    } catch (err) {
-      if (err.response?.status === 401) {
-        setLoggedIn(false);
-      } else {
-        setError('Datan lataus epäonnistui. Onko backend käynnissä?');
-      }
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleLogin = () => {
-    setLoggedIn(true);
-  };
-
-  const handleLogout = async () => {
-    await logout();
-    setLoggedIn(false);
-    setData(null);
+  const cities = {
+    bilbao: { name: 'Bilbao' },
+    sanSebastian: { name: 'San Sebastián' },
   };
 
   const getCityKey = () => {
@@ -55,7 +39,6 @@ function App() {
     if (!cityKey) return;
     try {
       await addPlace(cityKey, place);
-      await loadData();
     } catch (err) {
       console.error('Paikan lisäys epäonnistui:', err);
     }
@@ -64,7 +47,6 @@ function App() {
   const handleUpdatePlace = async (id, updates) => {
     try {
       await updatePlace(id, updates);
-      await loadData();
     } catch (err) {
       console.error('Paikan päivitys epäonnistui:', err);
     }
@@ -73,25 +55,34 @@ function App() {
   const handleDeletePlace = async (id) => {
     try {
       await deletePlace(id);
-      await loadData();
     } catch (err) {
       console.error('Paikan poisto epäonnistui:', err);
     }
   };
 
-  const handleUpdateQuickLinks = async (updatedLinks) => {
+  const handleAddQuickLink = async (category, name, url) => {
     try {
-      const updatedData = { ...data, quickLinks: updatedLinks };
-      await saveData(updatedData);
-      setData(updatedData);
+      await addQuickLink(category, name, url);
     } catch (err) {
-      console.error('Pikalinkkien päivitys epäonnistui:', err);
+      console.error('Pikalinkin lisäys epäonnistui:', err);
     }
   };
 
-  if (!loggedIn) {
-    return <LoginPage onLogin={handleLogin} />;
-  }
+  const handleDeleteQuickLink = async (id) => {
+    try {
+      await deleteQuickLink(id);
+    } catch (err) {
+      console.error('Pikalinkin poisto epäonnistui:', err);
+    }
+  };
+
+  const handleDeleteCategory = async (category) => {
+    try {
+      await deleteQuickLinkCategory(category);
+    } catch (err) {
+      console.error('Kategorian poisto epäonnistui:', err);
+    }
+  };
 
   if (loading) {
     return <div className="loading">Ladataan...</div>;
@@ -101,7 +92,7 @@ function App() {
     return (
       <div className="error">
         <p>{error}</p>
-        <button onClick={loadData}>Yritä uudelleen</button>
+        <button onClick={fetchAll}>Yritä uudelleen</button>
       </div>
     );
   }
@@ -110,7 +101,7 @@ function App() {
     <div className="app">
       <header className="app-header">
         <h1 className="app-title"><span className="spain-flag"></span> Harmsun retki Bilbao ja San Sebastián</h1>
-        <button className="btn-logout" onClick={handleLogout}>Kirjaudu ulos</button>
+        <button className="btn-logout" onClick={onLogout}>Kirjaudu ulos</button>
       </header>
 
       <nav className="nav-tabs">
@@ -135,30 +126,71 @@ function App() {
       </nav>
 
       <main className="main-content">
-        {activeTab === 'bilbao' && data?.cities?.bilbao && (
+        {activeTab === 'bilbao' && (
           <CityView
-            city={data.cities.bilbao}
+            city={{ name: cities.bilbao.name, places: getPlacesByCity('bilbao') }}
             cityName="Bilbao"
             onUpdatePlace={handleUpdatePlace}
             onDeletePlace={handleDeletePlace}
             onAddPlace={handleAddPlace}
           />
         )}
-        {activeTab === 'sanSebastian' && data?.cities?.sanSebastian && (
+        {activeTab === 'sanSebastian' && (
           <CityView
-            city={data.cities.sanSebastian}
+            city={{ name: cities.sanSebastian.name, places: getPlacesByCity('sanSebastian') }}
             cityName="San Sebastián"
             onUpdatePlace={handleUpdatePlace}
             onDeletePlace={handleDeletePlace}
             onAddPlace={handleAddPlace}
           />
         )}
-        {activeTab === 'quickLinks' && data?.quickLinks && (
-          <QuickLinks links={data.quickLinks} onUpdate={handleUpdateQuickLinks} />
+        {activeTab === 'quickLinks' && (
+          <QuickLinks
+            groupedLinks={getGroupedQuickLinks()}
+            onAddLink={handleAddQuickLink}
+            onDeleteLink={handleDeleteQuickLink}
+            onDeleteCategory={handleDeleteCategory}
+          />
         )}
       </main>
     </div>
   );
+}
+
+function App() {
+  const [user, setUser] = useState(null);
+  const [authLoading, setAuthLoading] = useState(true);
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+      setAuthLoading(false);
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+  };
+
+  if (authLoading) {
+    return (
+      <div className="app">
+        <div className="loading">Ladataan...</div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return <LoginPage onLogin={() => {}} />;
+  }
+
+  return <MainContent onLogout={handleLogout} />;
 }
 
 export default App;

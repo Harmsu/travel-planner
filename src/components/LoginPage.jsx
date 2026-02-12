@@ -1,22 +1,24 @@
 import { useState } from 'react';
-import { login } from '../api';
+import { supabase } from '../lib/supabase';
 
 function LoginPage({ onLogin }) {
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!password.trim()) return;
+    if (!email.trim() || !password.trim()) return;
 
     setLoading(true);
     setError('');
     try {
-      await login(password);
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) throw error;
       onLogin();
     } catch (err) {
-      setError('Väärä salasana');
+      setError('Väärä sähköposti tai salasana');
     } finally {
       setLoading(false);
     }
@@ -33,11 +35,19 @@ function LoginPage({ onLogin }) {
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Sähköposti"
+              autoFocus
+            />
+          </div>
+          <div className="form-group">
+            <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Salasana"
-              autoFocus
             />
           </div>
           {error && <p className="login-error">{error}</p>}
