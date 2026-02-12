@@ -14,7 +14,7 @@ function PlaceForm({ place, cityName, onSave, onCancel }) {
   const [website, setWebsite] = useState(place?.website || '');
   const [googleMaps, setGoogleMaps] = useState(place?.googleMaps || '');
   const [otherLinks, setOtherLinks] = useState(place?.otherLinks || []);
-  const [mapsManuallyEdited, setMapsManuallyEdited] = useState(false);
+  const [mapsManuallyEdited, setMapsManuallyEdited] = useState(isEditing && !!place?.googleMaps);
 
   const nameRef = useRef(null);
 
@@ -53,6 +53,13 @@ function PlaceForm({ place, cityName, onSave, onCancel }) {
     setOtherLinks(updated);
   };
 
+  const normalizeUrl = (url) => {
+    if (!url || !url.trim()) return '';
+    const trimmed = url.trim();
+    if (trimmed.match(/^https?:\/\//i)) return trimmed;
+    return `https://${trimmed}`;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!name.trim() || !category) return;
@@ -65,9 +72,9 @@ function PlaceForm({ place, cityName, onSave, onCancel }) {
       name: name.trim(),
       category,
       description,
-      website,
+      website: normalizeUrl(website),
       googleMaps: finalGoogleMaps,
-      otherLinks: otherLinks.filter(l => l.name && l.url),
+      otherLinks: otherLinks.filter(l => l.name && l.url).map(l => ({ ...l, url: normalizeUrl(l.url) })),
       visited: place?.visited || false,
       notes: place?.notes || '',
     });
@@ -115,7 +122,7 @@ function PlaceForm({ place, cityName, onSave, onCancel }) {
           <div className="form-group">
             <label>Nettisivut</label>
             <input
-              type="url"
+              type="text"
               value={website}
               onChange={(e) => setWebsite(e.target.value)}
               placeholder="https://example.com"
@@ -125,7 +132,7 @@ function PlaceForm({ place, cityName, onSave, onCancel }) {
           <div className="form-group">
             <label>Google Maps</label>
             <input
-              type="url"
+              type="text"
               value={googleMaps}
               onChange={handleGoogleMapsChange}
               placeholder="Generoidaan automaattisesti paikan nimestä"
@@ -144,7 +151,7 @@ function PlaceForm({ place, cityName, onSave, onCancel }) {
                   placeholder="Linkin nimi"
                 />
                 <input
-                  type="url"
+                  type="text"
                   value={link.url}
                   onChange={(e) => handleLinkChange(index, 'url', e.target.value)}
                   placeholder="https://..."
