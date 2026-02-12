@@ -7,9 +7,9 @@
           "id": "1",
           "name": "Guggenheim-museo",
           "category": "museums",
-          "description": "Frank Gehryn suunnittelema moderni taidemuseo",
+          "description": "Frank Gehryn suunnittelema titaanilla päällystetty arkkitehtoninen mestariteos. Moderni ja nykytaide. Jeff Koonsin Puppy-kukkaskulptuuri ja Louise Bourgeoisin Maman-hämähäkki ulkona. Pääsylippu ~16 €.",
           "website": "https://www.guggenheim-bilbao.eus/",
-          "googleMaps": "https://maps.google.com/?q=Guggenheim+Bilbao",
+          "googleMaps": "https://maps.google.com/?q=Guggenheim+Museum+Bilbao",
           "otherLinks": [],
           "visited": false,
           "notes": ""
@@ -29,9 +29,9 @@
           "id": "4",
           "name": "Mercado de la Ribera",
           "category": "shopping",
-          "description": "Euroopan suurin katettu elintarviketori Art Deco -tyylisessä rakennuksessa. Tuoretta kalaa, lihaa, vihanneksia ja paikallisia herkkuja.",
-          "website": "https://www.mercadodelaribera.biz/",
-          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Mercado%20de%20la%20Ribera%2C%20Bilbao",
+          "description": "Euroopan suurin katettu ruokatori (Guinness-ennätys). Art deco -tyylistä arkkitehtuuria joen rannalla. Tuoreita kaloja, lihoja, vihanneksia, juustoja ja paikallisia herkkuja. Yläkerrassa La Ribera -baari/ravintola jossa myös live-musiikkia. Aito markkinakokemus paikallisten keskuudessa.",
+          "website": "https://www.mercadodelaribera.net",
+          "googleMaps": "https://maps.google.com/?q=Mercado+de+la+Ribera+Bilbao",
           "otherLinks": [],
           "visited": false,
           "notes": ""
@@ -68,6 +68,160 @@
           "otherLinks": [],
           "visited": false,
           "notes": ""
+        },
+        {
+          "id": "32",
+          "name": "Café Iruña",
+          "category": "restaurants",
+          "description": "Vuonna 1903 avattu legendaarinen kahvila Jardines de Albian puistikon edessä. Upea maurilaistyylinen sisustus polykromisine kattoineen, kaakelilaattoineen ja seinämaalauksineen. Tarjoaa aamiaisia, pintxoja (kuuluisat pinchos morunos), päivän menun ja iltamenun. Klassinen bilbaolaisten kohtaamispaikka yli 120 vuoden ajan. Aukioloajat: Ma–to 9–23, pe 9–24, la 11–24, su 11–23.",
+          "website": "https://www.cafeirunabilbao.net/",
+          "googleMaps": "https://maps.google.com/?q=Café+Iruña+Bilbao",
+          "otherLinks": [],
+          "visited": false,
+          "notes": "Osoite: Calle Berastegui 5 / Jardines de Albia, 48001 Bilbao"
+        },
+        {
+          "id": "33",
+          "name": "Gure Toki",
+          "category": "restaurants",
+          "description": "Plaza Nuevan kulmassa sijaitseva paikallisten suosikki, joka on voittanut Bilbaon parhaan pintxo-palkinnon useita kertoja. Yhdistää perinteistä ja modernia baskikeittiötä. Tunnettuja pintxoja: häränhäntäkroketit, kampasimpukat perunalla, grillattu foie omenalla ja Pedro Ximénezillä, turska pil-pil-kastikkeessa. 35+ vuoden historia.",
+          "website": "http://www.guretoki.com/",
+          "googleMaps": "https://maps.google.com/?q=Gure+Toki+Plaza+Nueva+Bilbao",
+          "otherLinks": [],
+          "visited": false,
+          "notes": "Plaza Nueva 12, 48005 Bilbao. Metro: Casco Viejo"
+        },
+        {
+          "id": "34",
+          "name": "La Viña del Ensanche",
+          "category": "restaurants",
+          "description": "Vuodesta 1927 toiminut perinteikäs baari/ravintola, nyt kolmannen sukupolven pyörittämä. Kuuluisa Joselito ibérico de bellota -kinkustaan ja txangurrosta (täytetty hämähäkkirapu). Michelin-suositus. Baari perinteisessä tunnelmassa + El Taller -tila avokeittiöllä degustointimenulle + delikatessikauppa. Yli 150 viiniä. Aukioloajat: Ma–pe 8–23, la 12–24, su suljettu.",
+          "website": "https://lavinadelensanche.com/en/",
+          "googleMaps": "https://maps.google.com/?q=La+Viña+del+Ensanche+Bilbao",
+          "otherLinks": [],
+          "visited": false,
+          "notes": "Diputación Kalea 10, 48008 Bilbao. Metro: Moyúa"
+        },
+        {
+          "id": "35",
+          "name": "Bar Charly",
+          "category": "restaurants",
+          "description": "Yksi Casco Viejon vanhimmista baareista, perustettu 1973. Perinteinen pintxos-baari Plaza Nuevan nurkassa. Kuuluisat rabas (friteeratut kalmarisorenkaat), chorizo siiderissä, simpukat pikantissa tomaattikastikkeessa ja täytetyt sardellitikut. Erinomainen hinta-laatusuhde ja ystävällinen palvelu. Terassi Plaza Nuevalla.",
+          "website": "https://barcharly.com",
+          "googleMaps": "https://maps.google.com/?q=Bar+Charly+Plaza+Nueva+Bilbao",
+          "otherLinks": [],
+          "visited": false,
+          "notes": "Plaza Nueva 8, 48005 Bilbao. Metro: Casco Viejo"
+        },
+        {
+          "id": "36",
+          "name": "Plaza Nueva",
+          "category": "walking",
+          "description": "Neoklassinen aukio Casco Viejossa, joka on täynnä pintxos-baareja kaariholvien alla. Bilbaon pintxos-hyppelykulttuurin sydän – joka baarista pari pintxoa ja juoma, sitten seuraavaan. Sunnuntaisin aukiolla on kirpputori. Gure Toki ja Bar Charly sijaitsevat molemmat tällä aukiolla.",
+          "website": "",
+          "googleMaps": "https://maps.google.com/?q=Plaza+Nueva+Bilbao",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "37",
+          "name": "Bilbaina Jazz Club (BJC)",
+          "category": "culture",
+          "description": "Vuonna 1991 perustettu jazz-yhdistys, jolla on kansainvälisesti tunnustettu viikoittainen konserttisarja. Torstai-iltaisin 'Ciclo Auditorio' -sarja Hotel Conde Duquessa (Campo Volantín 22). Kuukausittain 'Ciclo Mes a Mes' -sarja Sala BBK:ssa. Nykyjazzia parhaimmillaan – kansainvälisiä huippumuusikoita intiimissä ympäristössä. Uusi Jazzon Aretoa -tila nostaa elämystä: cocktailit, viini ja hyvä musiikki.",
+          "website": "http://www.bilbainajazzclub.org/",
+          "googleMaps": "https://maps.google.com/?q=Bilbaina+Jazz+Club+Bilbao",
+          "otherLinks": [],
+          "visited": false,
+          "notes": "Urazurrutia Kalea 5-7, 48003 Bilbao. Tarkista konserttikalenteri etukäteen sivustolta!"
+        },
+        {
+          "id": "38",
+          "name": "Cotton Club",
+          "category": "culture",
+          "description": "Bilbaon instituutio vuodesta 1994. Saksofonin muotoinen olunahana ja pullonkorkkien koristelemia seiniä. Monipuolinen live-musiikkiohjelma: jazz, blues, rock ja keikkoja tunnetuilta artisteilta (yli 30 vuotta). DJ-illat to–la. Viihtyisä ja tyylikkäästi sisustettu. Yleisö 20–50-vuotiaita. Lauantaisin 'Cottoneo' iltapäiväbileet klo 17 alkaen.",
+          "website": "https://cottonbilbao.com/",
+          "googleMaps": "https://maps.google.com/?q=Cotton+Club+Bilbao",
+          "otherLinks": [],
+          "visited": false,
+          "notes": "Gregorio de la Revilla 25 (sisäänkäynti Simón Bolívar -kadulta), 48010 Bilbao. Puh: +34 944 10 49 51"
+        },
+        {
+          "id": "39",
+          "name": "Luz Gas",
+          "category": "culture",
+          "description": "Casco Viejon tunnelmallinen baari, jossa viikolla jazz-musiikkia ja viikonloppuisin 80-luvun hittejä. Minimalistinen sisustus, design-kalusteet ja valkoiset seinät, joille paikalliset ja kansainväliset taiteilijat tekevät vaihtuvia näyttelyitä/installaatioita kuukausittain. Perjantai-iltaisin avoin taideplatformi erilaisille kulttuuritapahtumille. Monimuotoinen yleisö.",
+          "website": "",
+          "googleMaps": "https://maps.google.com/?q=Luz+Gas+Bilbao+Pelota",
+          "otherLinks": [],
+          "visited": false,
+          "notes": "Pelota Kalea 4-6, 48005 Bilbao. Metro: Casco Viejo"
+        },
+        {
+          "id": "40",
+          "name": "Kafe Antzokia",
+          "category": "culture",
+          "description": "Bilbaon tärkein live-musiikkilava ja baskinkielinen kulttuurikeskus. Entisestä teatterista vuonna 1995 muutettu monitoimikeskus: päivällä ravintola (~200 lounasta päivittäin, menu del día), iltaisin konsertteja (jazz, folk, pop-rock, baskilainen musiikki) ja yöllä yökerho DJ:n tahdissa. Torstaisin ja perjantaisin live-konsertteja. Bilbon baskinkielisen yhteisön sydän – myös kielikoulutusta, teatteria ja lastenohjelmaa.",
+          "website": "https://www.kafeantzokia.eus/en/",
+          "googleMaps": "https://maps.google.com/?q=Kafe+Antzokia+Bilbao",
+          "otherLinks": [],
+          "visited": false,
+          "notes": "San Vicente / Done Bikendi Kalea 2, 48001 Bilbao. Puh: +34 944 244 625"
+        },
+        {
+          "id": "41",
+          "name": "Bilbao La Vieja Street Art",
+          "category": "walking",
+          "description": "Bilbaon vanhin kaupunginosa, joka on muuttunut taide- ja kulttuurikortteliksi. Zaharra Kalealla ja ympäristössä valtavia seinämaalauksia ja katutaidetta. Myös pieniä gallerioita, vintage-kauppoja ja vaihtoehtoisia kahviloita. Boheemin tunnelman alue joen toisella puolella Casco Viejosta.",
+          "website": "",
+          "googleMaps": "https://maps.google.com/?q=Bilbao+La+Vieja+street+art",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "42",
+          "name": "Artxanda-funikulaari",
+          "category": "walking",
+          "description": "Vanha funikulaari (vuodesta 1915) vie Artxanda-vuoren huipulle, josta avautuvat upeat panoraamanäkymät koko Bilbaon ylle. Paikallisten suosikki piknik-paikka. Ylhäällä myös ravintoloita ja puisto. Lippu sisältyy Barik-korttiin! Matka kestää n. 3 min.",
+          "website": "",
+          "googleMaps": "https://maps.google.com/?q=Funicular+de+Artxanda+Bilbao",
+          "otherLinks": [],
+          "visited": false,
+          "notes": "Funikularreko Plaza (Castaños-alue), 48007 Bilbao"
+        },
+        {
+          "id": "43",
+          "name": "Puente Colgante (Puente de Bizkaia)",
+          "category": "museums",
+          "description": "Maailman vanhin kuljetussilta (1893), UNESCO:n maailmanperintökohde vuodesta 2006. Suunnittelija Alberto de Palacio oli Gustave Eiffelin oppilas. Yhdistää Getxon Las Arenasin ja Portugaleten joen yli. Kaksi tapaa ylittää: gondolilla (0,55 €, 1,5 min, 24h/vrk) tai kävellen 50 m korkealla panoraamakävelytiellä (hissillä ylös, upeat näkymät).",
+          "website": "https://puente-colgante.com/en/",
+          "googleMaps": "https://maps.google.com/?q=Puente+Colgante+Getxo",
+          "otherLinks": [],
+          "visited": false,
+          "notes": "C/ Barria 3, Las Arenas, 48930 Getxo. Metro: Areeta (Linja 1) – 5 min kävelymatka. Varaa kävelytiehen aika etenkin viikonloppuisin!"
+        },
+        {
+          "id": "44",
+          "name": "Semana Santa -prosessiot",
+          "category": "culture",
+          "description": "Pyhä viikko (Semana Santa) on Espanjassa ainutlaatuinen kokemus. Bilbaossa prosessiot kulkevat Casco Viejon läpi. Matkasi osuu juuri pääsiäisen tienoille (pääsiäinen 2026: 5.4.), joten saatat nähdä prosessioita!",
+          "website": "",
+          "googleMaps": "https://maps.google.com/?q=Casco+Viejo+Bilbao",
+          "otherLinks": [],
+          "visited": false,
+          "notes": ""
+        },
+        {
+          "id": "45",
+          "name": "Calle Laurel (Logroño) – päivämatka",
+          "category": "other",
+          "description": "Logroñon kuuluisa pintxos-katu La Riojan viinialueella. Jokainen baari erikoistunut yhteen asiaan – champiñones (sienet), patatas a la riojana jne. Logroño on päivämatkan päässä Bilbaosta junalla.",
+          "website": "",
+          "googleMaps": "https://maps.google.com/?q=Calle+Laurel+Logroño",
+          "otherLinks": [],
+          "visited": false,
+          "notes": "Päivämatka Bilbaosta junalla"
         }
       ]
     },
@@ -100,9 +254,9 @@
           "id": "9",
           "name": "La Concha -ranta",
           "category": "walking",
-          "description": "Kuuluisa simpukkamuotoinen kaupunkiranta, yksi Euroopan kauneimmista kaupunkirannoista",
+          "description": "Euroopan kauneimmaksi kaupunkirannaksi valittu simpukanmuotoinen hiekkaranta San Sebastiánin sydämessä. Kävele rantapromenadia pitkin ja nauti näkymistä Monte Urgulliin ja Santa Clara -saarelle.",
           "website": "",
-          "googleMaps": "https://www.google.com/maps/search/?api=1&query=La%20Concha%20Beach%2C%20San%20Sebasti%C3%A1n",
+          "googleMaps": "https://maps.google.com/?q=La+Concha+Beach+San+Sebastian",
           "otherLinks": [],
           "visited": false,
           "notes": ""
@@ -122,12 +276,12 @@
           "id": "11",
           "name": "Bar Nestor",
           "category": "restaurants",
-          "description": "Legendaarinen tortilla - vain 2 kpl päivässä (klo 13 ja 20). Myös tomaattisalaatti, padrón-paprikat ja txuleta-pihvi. Saavu tunti ennen varaamaan paikka!",
-          "website": "https://bar-nestor.negocio.site/",
-          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Bar%20Nestor%2C%20San%20Sebasti%C3%A1n",
+          "description": "Kulttipaikka, joka on kuuluisa legendaarisesta tortillastaan – vain 2 tortillaa päivässä (lounaalle ja illalliselle). Saadaksesi palan sinun pitää mennä paikalle noin tuntia ennen avaamista ja ilmoittautua listalle (rajaus 1 pala/henkilö). Menulla vain 4 annosta: tortilla, tomaattisalaatti, padron-pippurit ja txuleta. Nestor itse tulee keittiöstä kultaisen tortillansa kanssa ja leikkaa palat.",
+          "website": "https://bar-nestor.negocio.site",
+          "googleMaps": "https://maps.google.com/?q=Bar+Nestor+San+Sebastian",
           "otherLinks": [],
           "visited": false,
-          "notes": ""
+          "notes": "Mene klo 12 lounaalle tai klo 19 illalliselle ilmoittautumaan! Osoite: Arrandegi Kalea 11, 20003 Donostia"
         },
         {
           "id": "12",
@@ -164,14 +318,14 @@
         },
         {
           "id": "15",
-          "name": "Txepetxa",
+          "name": "Bar Txepetxa",
           "category": "restaurants",
-          "description": "Sardellibaari - 14 eri sardellivariaatiota! Tuoreet, mehevät sardellit. Suositus: sardelli + papaya-yhdistelmä. Perustettu 1948.",
-          "website": "",
-          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Txepetxa%2C%20San%20Sebasti%C3%A1n",
+          "description": "'Sardellien kuningas' – vuodesta 1972 toiminut baari, joka on omistautunut kokonaan sardellipintxoille! 12 eri versiota: sardelli hämähäkkiravulla, merisiilin mädillä, mustaoliivipasteella, jardinera-kasviksilla jne. Salainen perheen marinointiresepti. Seinillä julkkiskuvia Ferrán Adriàsta kuninkaallisiin. Aukioloajat: Ke–la 12–15 ja 19–23, ti 19–23, su 12–15, ma suljettu.",
+          "website": "https://bartxepetxa.com",
+          "googleMaps": "https://maps.google.com/?q=Bar+Txepetxa+San+Sebastian",
           "otherLinks": [],
           "visited": false,
-          "notes": ""
+          "notes": "Arrandegi Kalea 5, 20003 Donostia"
         },
         {
           "id": "16",
@@ -188,12 +342,12 @@
           "id": "17",
           "name": "Gandarias",
           "category": "restaurants",
-          "description": "Monipuolinen pintxos-baari hyvällä valikoimalla 31 de Agosto -kadulla. Tunnettu hanhenmaksapintxoistaan. Laadukas ja luotettava valinta.",
-          "website": "",
-          "googleMaps": "https://www.google.com/maps/search/?api=1&query=Gandarias%2C%20San%20Sebasti%C3%A1n",
+          "description": "Klassinen pintxos-baari ja ravintola vanhankaupungin sydämessä. Kinkkuja roikkuu katosta ja tiskin päällä on valtava pintxos-valikoima – sekä kylmiä että kuumia. Kuuluisa solomillo (sisäfilee)-pintxo leivän päällä viherpippurilla. Ravintolasalissa perinteistä baskikeittiötä: paistettua porsasta, karitsan kyljyksiä, turskaa ja mereneläviä. Laaja viinilista. Avoinna keskeytyksettä keskipäivästä keskiyöhön.",
+          "website": "https://www.restaurantegandarias.com/en/",
+          "googleMaps": "https://maps.google.com/?q=Gandarias+San+Sebastian",
           "otherLinks": [],
           "visited": false,
-          "notes": ""
+          "notes": "31 de Agosto Kalea 23, 20003 Donostia. Puh: +34 943 426 362"
         },
         {
           "id": "18",
@@ -210,12 +364,12 @@
           "id": "19",
           "name": "La Cuchara de San Telmo",
           "category": "restaurants",
-          "description": "'Kaikki on hyvää täällä!' Moderni pintxos-keittiö lähellä San Telmo -museota. Korvaterriini (oreja) klassikko, porsaanpaisti (cochinillo), vasikanposki. Kaikki tilauksesta.",
-          "website": "",
-          "googleMaps": "https://www.google.com/maps/search/?api=1&query=La%20Cuchara%20de%20San%20Telmo%2C%20San%20Sebasti%C3%A1n",
+          "description": "Moderni pintxos-baari, joka on ansainnut maineen yhtenä Baskimaan parhaista. Ei perinteistä tiskin päällä olevaa pintxos-näyttelyä – kaikki tehdään tilauksesta! Menu vaihtuu kausittain liitutaululta. Tunnettuja annoksia: porsaan posket (carrillera), hitaasti paahdettu porsaanpaisti (cochinillo), grillattu mustekala, foie omenakompotilla. Pieni ja vilkas – jonota kannattaa.",
+          "website": "https://www.lacucharadesantelmo.com",
+          "googleMaps": "https://maps.google.com/?q=La+Cuchara+de+San+Telmo+San+Sebastian",
           "otherLinks": [],
           "visited": false,
-          "notes": ""
+          "notes": "Calle 31 de Agosto 28, 20003 Donostia. Aukioloajat: Ke–ma 12:30–17:30 ja 19:30–23:30, ti 19:30–23:30, ma suljettu"
         },
         {
           "id": "20",
@@ -388,6 +542,27 @@
         {
           "name": "Renfe",
           "url": "https://www.renfe.com/"
+        },
+        {
+          "name": "Trainline",
+          "url": "https://www.trainline.com"
+        }
+      ]
+    },
+    {
+      "category": "Nähtävyydet & Info",
+      "links": [
+        {
+          "name": "Guggenheim-museo",
+          "url": "https://www.guggenheim-bilbao.eus"
+        },
+        {
+          "name": "Bilbao-info (turismo)",
+          "url": "https://www.bilbaoturismo.net"
+        },
+        {
+          "name": "Bilbaina Jazz Club",
+          "url": "http://www.bilbainajazzclub.org"
         }
       ]
     },
